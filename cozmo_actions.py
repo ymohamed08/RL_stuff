@@ -67,7 +67,7 @@ class actions:
         # back_color = ColorRGBA(1,1,1,1)
         # pub_back_color.publish(back_color)
  def action_cute(): 
-        say = 'lets be sad'
+        say = 'Kawaiii'
         pub_say.publish(say)
 
         head_angle = (1)
