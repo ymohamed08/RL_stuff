@@ -32,13 +32,13 @@ class actions:
         # back_color = ColorRGBA(1,1,1,1)
         # pub_back_color.publish(back_color)
     def action_sadness(): 
-        say = 'lets be sad'
+        say = 'i will cheer you up'
         pub_say.publish(say)
 
         head_angle = (1)
         pub_head_angle.publish(head_angle)
 
-        for i in range(0,12):
+        for i in range(0,4):
             lift_hight = (0.2)
             pub_lift_hight.publish(lift_hight)
             time.sleep(0.3)
@@ -49,4 +49,37 @@ class actions:
         # back_color = ColorRGBA(1,1,1,1)
         # pub_back_color.publish(back_color)
 
-    action_party()
+ def action_confused_cute(): 
+        say = 'What are we doing again?'
+        pub_say.publish(say)
+
+        head_angle = (1)
+        pub_head_angle.publish(head_angle)
+
+        for i in range(0,2):
+            lift_hight = (0.2)
+            pub_lift_hight.publish(lift_hight)
+            time.sleep(0.3)
+            lift_hight = (0)
+            pub_lift_hight.publish(lift_hight)
+            time.sleep(0.3)
+
+        # back_color = ColorRGBA(1,1,1,1)
+        # pub_back_color.publish(back_color)
+ def action_cute(): 
+        say = 'lets be sad'
+        pub_say.publish(say)
+
+        head_angle = (1)
+        pub_head_angle.publish(head_angle)
+
+        for i in range(0,1):
+            lift_hight = (0.2)
+            pub_lift_hight.publish(lift_hight)
+            time.sleep(0.3)
+            lift_hight = (0)
+            pub_lift_hight.publish(lift_hight)
+            time.sleep(0.3)
+
+        # back_color = ColorRGBA(1,1,1,1)
+        # pub_back_color.publish(back_color)
