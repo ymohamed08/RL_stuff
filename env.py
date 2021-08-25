@@ -65,7 +65,6 @@ class CozmoEnv(gym.Env):
     # Calculates moving average reward
     self.queue.appendleft(reward)
     if len(self.queue) == 7:
-      self.queue.pop()
       tmp = self.queue.copy()
       movingAvgReward = 0
       while len(tmp)!=0:
@@ -74,6 +73,8 @@ class CozmoEnv(gym.Env):
       movingAvgReward /= 7
       print(movingAvgReward)
       print(self.movingAvgRewards)
+      self.queue.pop()
+
 
     return observation, reward, True, {}
   def reset(self):
