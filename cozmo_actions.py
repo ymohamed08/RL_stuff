@@ -25,6 +25,7 @@ class actions():
         
         say = 'lets party'
         pub_say.publish(say)
+        time.sleep(0.3)
 
         head_angle = (3)
         pub_head_angle.publish(head_angle)
@@ -42,10 +43,12 @@ class actions():
 
         # back_color = ColorRGBA(1,1,1,1)
         # pub_back_color.publish(back_color)
+
     def action_sadness(self): 
         global cheerup_count
         say = 'i will cheer you up'
         pub_say.publish(say)
+        time.sleep(0.3)
 
         head_angle = (1)
         pub_head_angle.publish(head_angle)
@@ -68,6 +71,7 @@ class actions():
         global confused_count
         say = 'What are we doing again?'
         pub_say.publish(say)
+        time.sleep(0.3)
 
         head_angle = (3)
         pub_head_angle.publish(head_angle)
@@ -88,6 +92,7 @@ class actions():
         global cute_count
         say = 'You are cute'
         pub_say.publish(say)
+        time.sleep(0.3)
 
         head_angle = (3)
         pub_head_angle.publish(head_angle)

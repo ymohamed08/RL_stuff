@@ -9,6 +9,9 @@ import rospy
 import keyboard
 from openface2_ros.msg import Faces
 import time 
+from stable_baselines.common.callbacks import BaseCallback
+import numpy as np 
+
 
 class CozmoEnv(gym.Env):
   
@@ -67,13 +70,12 @@ class CozmoEnv(gym.Env):
       movingAvgReward = 0
       while len(tmp)!=0:
         movingAvgReward += tmp.pop()
-      movingAvgReward /= 7
       self.movingAvgRewards.append(movingAvgReward)
+      movingAvgReward /= 7
       print(movingAvgReward)
       print(self.movingAvgRewards)
 
-    
-    return observation, reward, False, {}
+    return observation, reward, True, {}
   def reset(self):
     return [0] * 2
 
