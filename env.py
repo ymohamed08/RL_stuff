@@ -69,8 +69,8 @@ class CozmoEnv(gym.Env):
       movingAvgReward = 0
       while len(tmp)!=0:
         movingAvgReward += tmp.pop()
-      self.movingAvgRewards.append(movingAvgReward)
       movingAvgReward /= 7
+      self.movingAvgRewards.append(movingAvgReward)
       print(movingAvgReward)
       print(self.movingAvgRewards)
       self.queue.pop()
