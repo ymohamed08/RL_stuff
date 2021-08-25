@@ -86,7 +86,7 @@ class actions():
         # pub_back_color.publish(back_color)
     def action_cute(self): 
         global cute_count
-        say = 'Kawaiii'
+        say = 'You are cute'
         pub_say.publish(say)
 
         head_angle = (3)

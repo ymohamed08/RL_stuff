@@ -28,13 +28,11 @@ model = DQN("MlpPolicy",
             learning_rate=0.3,
             verbose=1,
             tensorboard_log="./a2c_cartpole_tensorboard/")
-model.learn(total_timesteps=20)
+model.learn(total_timesteps=30)
 
 plt.plot(range(len(env.movingAvgRewards)), env.movingAvgRewards)
 # global party_count,cheerup_count, confused_count, cute_count
 # action_counts = [actions.party_count , actions.cheerup_count,actions.confused_count,actions.cute_count]
-plt.bar([1,2,3,4], env.actionCounter)
-
 obs = env.reset()
 for i in range(10):
     action, _states = model.predict(obs, deterministic=True)

@@ -8,6 +8,7 @@ from cozmo_actions import actions
 import rospy 
 import keyboard
 from openface2_ros.msg import Faces
+import time 
 
 class CozmoEnv(gym.Env):
   
@@ -41,16 +42,22 @@ class CozmoEnv(gym.Env):
     step_action = self.action_maps[action]
     step_action(self)
     # print("smile! or don't, I don't care")
-    time.sleep(5)
-    
-    if self.action_units:
-      observation = [self.action_units[8].intensity, self.action_units[13].intensity]
-    else:
-      observation = [0] * 2
+    start_time = time.time()
+    smile_count = 0
+    while time.time() - start_time < 5.0:
+      
+      if self.action_units:
+        observation = [self.action_units[8].intensity/5, self.action_units[13].intensity/5]
+      else:
+        observation = [0] * 2
+      
+      if observation[0]  > 0.3/5 and observation[1] > 0.5/5: 
+        smile_count += 1
+      time.sleep(0.1)
 
-    
-    if observation[0]  > 0.3 and observation[1] > 0.5: 
-        reward = 1
+    if smile_count >= 5:
+      reward = 1
+    print(smile_count)
     print("observation registered")
     # Calculates moving average reward
     self.queue.appendleft(reward)
